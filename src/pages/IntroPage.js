@@ -19,7 +19,7 @@ function IntroPage() {
   return (
     <>
       <header className="top-nav">
-        <div className="logo">Swasthya Sewa</div>
+        <a className="logo" href="/">Swasthya Sewa</a>
         <div className="nav-buttons">
           <a href="/login" className="btn-outline">Login</a>
           <a href="/signup" className="btn-filled">Sign Up</a>

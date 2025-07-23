@@ -48,20 +48,48 @@
   margin-bottom: 1.2rem;
 }
 
-.form-group input {
+.form-group textarea {
   width: 100%;
   padding: 0.8rem 1rem;
   border: 1.5px solid #e0e0e0;
   border-radius: 7px;
   font-size: 1rem;
   outline: none;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
   background: #f8fafd;
+  min-height: 90px;
+  resize: vertical;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.04);
+}
+
+.form-group textarea:focus {
+  border: 1.5px solid #1abc9c;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(26,188,156,0.10);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group input[type="time"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #f8fafd;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.04);
 }
 
 .form-group input:focus {
   border: 1.5px solid #1abc9c;
   background: #fff;
+  box-shadow: 0 2px 8px rgba(26,188,156,0.10);
 }
 
 .forgot-password {

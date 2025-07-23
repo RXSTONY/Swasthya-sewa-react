@@ -14,6 +14,13 @@
   font-weight: 700;
   color: #1abc9c;
   letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s;
+}
+.logo:hover {
+  color: #159c82;
+  text-decoration: underline;
 }
 
 .nav-buttons {
