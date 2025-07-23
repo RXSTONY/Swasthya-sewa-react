@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Smart Search</title>
+</head>
+<body>
+  <h1>Search for Doctors</h1>
+
+  <input type="text" id="searchBox" placeholder="Enter name, specialization, or location">
+  <button id="searchBtn">Search</button>
+
+  <ul id="results"></ul>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("searchBtn");
+
+      button.addEventListener("click", function () {
+        const query = document.getElementById("searchBox").value;
+        console.log("Searching:", query);  // ✅ This must appear in browser console
+
+        fetch(`/search?q=${query}`)
+          .then(response => response.json())
+          .then(data => {
+            const results = document.getElementById("results");
+            results.innerHTML = "";
+
+            if (data.length === 0) {
+              results.innerHTML = "<li>No results found</li>";
+            } else {
+              data.forEach(doc => {
+                const li = document.createElement("li");
+                li.textContent = `${doc.name} - ${doc.specialization} - ${doc.location} - Rs.${doc.fee} - Rating: ${doc.rating}`;
+                results.appendChild(li);
+              });
+            }
+          })
+          .catch(err => {
+            console.error("❌ Error during fetch:", err);
+          });
+      });
+    });
+  </script>
+</body>
+</html>
