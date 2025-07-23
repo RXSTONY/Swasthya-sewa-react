@@ -8,11 +8,11 @@ function DashboardDoctor() {
       <aside className="sidebar">
         <h2>Swasthya Sewa</h2>
         <ul>
-          <li className="active">📊 Dashboard</li>
-          <li>📅 My Schedule</li>
-          <li>📁 Patient Records</li>
-          <li>📝 Write Prescription</li>
-          <li>⚙️ Settings</li>
+          <li className="active">Dashboard</li>
+          <li> My Schedule</li>
+          <li>Patient Records</li>
+          <li> Write Prescription</li>
+          <li>Settings</li>
         </ul>
       </aside>
       <main className="main-content">
