@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f8ff;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  animation: fadeIn 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+::selection {
+  background: #1abc9c22;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

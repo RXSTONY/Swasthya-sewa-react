@@ -1,0 +1,124 @@
+/* Login & Signup styling */
+
+.login-container {
+  max-width: 370px;
+  margin: 3.5rem auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(44,62,80,0.09);
+  padding: 2.5rem 2.2rem 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1abc9c;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.role-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.7rem;
+}
+
+.role-toggle button {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #1abc9c;
+  background: transparent;
+  color: #1abc9c;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.role-toggle button.active, .role-toggle button:hover {
+  background: #1abc9c;
+  color: #fff;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f8fafd;
+}
+
+.form-group input:focus {
+  border: 1.5px solid #1abc9c;
+  background: #fff;
+}
+
+.forgot-password {
+  width: 100%;
+  text-align: right;
+  color: #1abc9c;
+  font-size: 0.97rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: text-decoration 0.2s;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.9rem 0;
+  background: #1abc9c;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background: #159c82;
+}
+
+.signup {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.signup a {
+  color: #1abc9c;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  transition: text-decoration 0.2s;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .login-container {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}
