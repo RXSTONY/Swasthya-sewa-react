@@ -1,7 +1,11 @@
+// Reports.js
+// This page displays a patient's medical reports in a table with download/view actions.
+
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import '../Dashboard.css';
 
+// Mock report data for demonstration
 const mockReports = [
   {
     id: 1,
@@ -31,6 +35,7 @@ function Reports() {
 
   return (
     <DashboardLayout role="patient" activePage="reports">
+      {/* Center the main content horizontally */}
       <div style={{display:'flex', justifyContent:'center', alignItems:'flex-start', width:'100%'}}>
         <div className="login-container" style={{maxWidth: 700, width:'100%'}}>
           <a className="logo" href="/">Swasthya Sewa</a>
@@ -43,6 +48,7 @@ function Reports() {
                 <div>Doctor</div>
                 <div>Action</div>
               </div>
+              {/* Render each report row */}
               {reports.length === 0 ? (
                 <div style={{color:'#888', fontSize:'1rem', textAlign:'center', marginTop:'2rem'}}>No reports found.</div>
               ) : (

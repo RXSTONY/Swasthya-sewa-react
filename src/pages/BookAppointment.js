@@ -1,7 +1,11 @@
+// BookAppointment.js
+// This page allows patients to book an appointment with a doctor. Includes smart search and form validation.
+
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import '../Form.css';
 
+// Mock doctor data for demonstration
 const doctors = [
   { id: 'D001', name: 'Dr. A. Sharma', specialization: 'Cardiologist', conditions: ['Heart Disease', 'Hypertension'] },
   { id: 'D002', name: 'Dr. B. Verma', specialization: 'Dermatologist', conditions: ['Skin Rash', 'Acne'] },
@@ -12,17 +16,25 @@ const allSpecializations = Array.from(new Set(doctors.map(d => d.specialization)
 const allConditions = Array.from(new Set(doctors.flatMap(d => d.conditions)));
 
 function BookAppointment() {
+  // State for form fields
   const [form, setForm] = useState({
     doctor: '',
     date: '',
     time: '',
     reason: '',
   });
+  // State for search/filter
   const [searchType, setSearchType] = useState('nameOrId');
   const [searchValue, setSearchValue] = useState('');
   const [filteredDoctors, setFilteredDoctors] = useState(doctors);
   const [submitted, setSubmitted] = useState(false);
 
+  // Handle changes in form fields
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // Handle doctor search/filter
   const handleSmartSearch = (type, value) => {
     setSearchType(type);
     setSearchValue(value);
@@ -41,12 +53,10 @@ function BookAppointment() {
     setForm(f => ({ ...f, doctor: '' }));
   };
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validate fields
     if (!form.doctor || !form.date || !form.time || !form.reason) {
       alert('Please fill in all fields.');
       return;
@@ -54,6 +64,7 @@ function BookAppointment() {
     setSubmitted(true);
   };
 
+  // Show confirmation after booking
   if (submitted) {
     return (
       <DashboardLayout role="patient" activePage="book">
@@ -74,6 +85,7 @@ function BookAppointment() {
     );
   }
 
+  // Main booking form
   return (
     <DashboardLayout role="patient" activePage="book">
       <div style={{display:'flex', justifyContent:'center', alignItems:'flex-start', width:'100%'}}>
@@ -82,6 +94,7 @@ function BookAppointment() {
           <div className="card" style={{width:'100%', margin:'1.5rem 0 0 0', padding:'2rem 1.5rem', boxShadow:'0 4px 24px rgba(44,62,80,0.10)'}}>
             <h1 className="title" style={{marginBottom: '1.2rem', textAlign:'center'}}>Book Appointment</h1>
             <form onSubmit={handleSubmit} style={{width:'100%'}}>
+              {/* Doctor search and selection */}
               <div style={{marginBottom:'1.2rem'}}>
                 <div style={{fontWeight:600, fontSize:'1.08rem', marginBottom:'0.5rem', display:'flex', alignItems:'center', gap:'0.5rem'}}>
                   <span role="img" aria-label="doctor">🩺</span> Find a Doctor
@@ -126,6 +139,7 @@ function BookAppointment() {
                   </select>
                 </div>
               </div>
+              {/* Doctor dropdown */}
               <div style={{marginBottom:'1.2rem'}}>
                 <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Select Doctor</label>
                 <select name="doctor" value={form.doctor} onChange={handleChange} style={{width:'100%'}}>
@@ -138,6 +152,7 @@ function BookAppointment() {
                   Can’t find your doctor? Try searching by condition or specialist.
                 </div>
               </div>
+              {/* Date, time, reason fields */}
               <div className="form-group">
                 <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}><span role="img" aria-label="calendar">📅</span> Date</label>
                 <input type="date" name="date" value={form.date} onChange={handleChange} />

@@ -1,3 +1,6 @@
+// DoctorSettings.js
+// This page allows doctors to update their profile information and password.
+
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import '../Dashboard.css';
@@ -11,14 +14,16 @@ function DoctorSettings() {
   });
   const [saved, setSaved] = useState(false);
 
+  // Handle changes in form fields
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+    setTimeout(() => setSaved(false), 2000); // Show 'Saved!' message for 2 seconds
   };
 
   return (
@@ -28,18 +33,22 @@ function DoctorSettings() {
         <div className="card" style={{width:'100%', margin:'1.5rem 0 0 0', padding:'2rem 1.5rem', boxShadow:'0 4px 24px rgba(44,62,80,0.10)'}}>
           <h1 className="title" style={{marginBottom: '1.2rem', textAlign:'center'}}>Settings</h1>
           <form onSubmit={handleSubmit} style={{width:'100%'}}>
+            {/* Name field */}
             <div className="form-group">
               <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Name</label>
               <input type="text" name="name" value={form.name} onChange={handleChange} />
             </div>
+            {/* Email field */}
             <div className="form-group">
               <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Email</label>
               <input type="email" name="email" value={form.email} onChange={handleChange} />
             </div>
+            {/* Specialization field */}
             <div className="form-group">
               <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Specialization</label>
               <input type="text" name="specialization" value={form.specialization} onChange={handleChange} />
             </div>
+            {/* Password field */}
             <div className="form-group">
               <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Password</label>
               <input type="password" name="password" value={form.password} onChange={handleChange} />

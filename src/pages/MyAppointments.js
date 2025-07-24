@@ -1,7 +1,11 @@
+// MyAppointments.js
+// This page displays a patient's upcoming and past appointments in a clean, readable format.
+
 import React, { useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import '../Dashboard.css';
 
+// Mock appointment data for demonstration
 const mockAppointments = [
   {
     id: 1,
@@ -36,8 +40,9 @@ function MyAppointments() {
   const [appointments] = useState(mockAppointments);
   const today = new Date().toISOString().split('T')[0];
 
-  const upcoming = appointments.filter(a => a.date >= today);
-  const past = appointments.filter(a => a.date < today);
+  // Separate upcoming and past appointments
+  const upcoming = appointments.filter(app => app.date >= today);
+  const past = appointments.filter(app => app.date < today);
 
   return (
     <DashboardLayout role="patient" activePage="appointments">
@@ -46,6 +51,7 @@ function MyAppointments() {
           <a className="logo" href="/">Swasthya Sewa</a>
           <div className="card" style={{marginTop: '1.5rem', padding: '2rem 1.5rem', boxShadow:'0 4px 24px rgba(44,62,80,0.10)'}}>
             <h1 className="title" style={{marginBottom: '1.2rem', textAlign:'center'}}>My Appointments</h1>
+            {/* Upcoming Appointments Section */}
             <section style={{marginBottom: '2rem'}}>
               <h3 style={{color:'#1abc9c', marginBottom:'1rem', fontWeight:600, fontSize:'1.1rem'}}>Upcoming Appointments</h3>
               {upcoming.length === 0 ? (
@@ -61,6 +67,7 @@ function MyAppointments() {
                 ))
               )}
             </section>
+            {/* Past Appointments Section */}
             <section>
               <h3 style={{color:'#aaa', marginBottom:'1rem', fontWeight:600, fontSize:'1.1rem'}}>Past Appointments</h3>
               {past.length === 0 ? (

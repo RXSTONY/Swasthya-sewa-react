@@ -1,8 +1,11 @@
+// SignupPage.js
+// This page handles user registration for both patients and doctors, with validation and role-based fields.
 
 import React, { useState } from 'react';
 import '../Form.css';
 
 function SignupPage() {
+  // Form state for all fields
   const [role, setRole] = useState('patient');
   const [form, setForm] = useState({
     fullName: '',
@@ -24,15 +27,17 @@ function SignupPage() {
   });
   const [codeError, setCodeError] = useState('');
 
+  // Handle changes in form fields
   const handleChange = (e) => {
     setForm({ ...form, [e.target.id]: e.target.value });
   };
 
+  // Simple email format validation
   const validateEmail = (email) => {
-    // Simple email regex
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  // Handle form submission
   const handleSignup = () => {
     // Basic validation for required fields
     const commonFields = [form.fullName, form.email, form.phone, form.password, form.dob, form.gender, form.address];
@@ -50,7 +55,7 @@ function SignupPage() {
         return;
       }
     } else {
-      // doctor
+      // Doctor-specific validation
       if (!form.licenseNumber || !form.specialization || !form.experience || !form.clinicName || !form.clinicAddress) {
         alert('Please fill in all doctor-specific fields.');
         return;
@@ -66,10 +71,12 @@ function SignupPage() {
     <div className="login-container">
       <a className="logo" href="/">Swasthya Sewa</a>
       <h1 className="title">Sign Up</h1>
+      {/* Role toggle buttons */}
       <div className="role-toggle">
         <button onClick={() => setRole('patient')} className={role === 'patient' ? 'active' : ''}>👤 I am Patient</button>
         <button onClick={() => setRole('doctor')} className={role === 'doctor' ? 'active' : ''}>🩺 I am a Doctor</button>
       </div>
+      {/* Common fields */}
       <div className="form-group">
         <input type="text" placeholder="Full Name" id="fullName" value={form.fullName} onChange={handleChange} />
       </div>
@@ -98,6 +105,7 @@ function SignupPage() {
       <div className="form-group">
         <input type="text" placeholder="Address" id="address" value={form.address} onChange={handleChange} />
       </div>
+      {/* Patient-specific fields */}
       {role === 'patient' && (
         <>
           <div className="form-group">
@@ -108,6 +116,7 @@ function SignupPage() {
           </div>
         </>
       )}
+      {/* Doctor-specific fields */}
       {role === 'doctor' && (
         <>
           <div className="form-group">

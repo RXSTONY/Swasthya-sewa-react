@@ -1,11 +1,17 @@
+// DashboardLayout.js
+// Reusable layout for all dashboard pages. Renders the sidebar and main content area.
+// Sidebar links and active state are determined by the user role and current page.
+
 import React from 'react';
 import '../Dashboard.css';
 
 function DashboardLayout({ role, activePage, children }) {
+  // Handles logout by redirecting to the home page
   const handleLogout = () => {
     window.location.href = '/';
   };
 
+  // Sidebar links for patients and doctors
   const patientLinks = [
     { label: 'Home', href: '/dashboard-patient', key: 'home' },
     { label: 'Book Appointment', href: '/book-appointment', key: 'book' },
@@ -23,6 +29,7 @@ function DashboardLayout({ role, activePage, children }) {
 
   return (
     <div className="dashboard">
+      {/* Sidebar navigation with logo and links */}
       <aside className="sidebar">
         <a className="logo" href="/"><h2>Swasthya Sewa</h2></a>
         <ul>
@@ -31,9 +38,12 @@ function DashboardLayout({ role, activePage, children }) {
               <a href={link.href}>{link.label}</a>
             </li>
           ))}
-          <li><button onClick={handleLogout} style={{background:'none',border:'none',color:'#fff',font:'inherit',cursor:'pointer',padding:0}}>Logout</button></li>
+          <li>
+            <button onClick={handleLogout}>Logout</button>
+          </li>
         </ul>
       </aside>
+      {/* Main content area for dashboard pages */}
       <main className="main-content dashboard-grid">
         {children}
       </main>
