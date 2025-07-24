@@ -44,7 +44,6 @@ function DoctorPrescription() {
           <div className="card" style={{marginTop: '1.5rem', textAlign: 'center'}}>
             <h1 className="title" style={{marginBottom: '0.5rem'}}>Prescription Sent!</h1>
             <div style={{fontSize: '1.1rem', marginBottom: '1.2rem'}}>
-              <span role="img" aria-label="success" style={{fontSize: '2.2rem', color: '#1abc9c'}}>✅</span>
               <p style={{margin: '1rem 0 0 0'}}>Prescription for <b>{form.patient}</b> has been sent.</p>
             </div>
           </div>

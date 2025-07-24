@@ -41,33 +41,45 @@ function Reports() {
           <a className="logo" href="/">Swasthya Sewa</a>
           <div className="card" style={{marginTop: '1.5rem', padding: '2rem 1.5rem', boxShadow:'0 4px 24px rgba(44,62,80,0.10)'}}>
             <h1 className="title" style={{marginBottom: '1.2rem', textAlign:'center'}}>My Medical Reports</h1>
-            <div className="report-table">
-              <div className="report-table-header">
-                <div>Date</div>
-                <div>Type</div>
-                <div>Doctor</div>
-                <div>Action</div>
-              </div>
-              {/* Render each report row */}
-              {reports.length === 0 ? (
-                <div style={{color:'#888', fontSize:'1rem', textAlign:'center', marginTop:'2rem'}}>No reports found.</div>
-              ) : (
-                reports.map(report => (
-                  <div key={report.id} className="report-row">
-                    <div><span role="img" aria-label="calendar">📅</span> {report.date}</div>
-                    <div><span role="img" aria-label="type">📄</span> {report.type}</div>
-                    <div><span role="img" aria-label="doctor">🩺</span> {report.doctor}</div>
-                    <div>
-                      <a href={report.file} className="report-btn" download>
-                        <span role="img" aria-label="download">⬇️</span> Download
-                      </a>
-                      <a href={report.file} className="report-btn view-btn" style={{marginLeft:'0.5rem'}} target="_blank" rel="noopener noreferrer">
-                        <span role="img" aria-label="view">👁️</span> View
-                      </a>
-                    </div>
-                  </div>
-                ))
-              )}
+            {/* Modern, humanized table for reports */}
+            <div style={{overflowX: 'auto', display: 'flex', justifyContent: 'center'}}>
+              <table style={{
+                width: '100%',
+                maxWidth: 800,
+                margin: '0 auto',
+                borderCollapse: 'separate',
+                borderSpacing: 0,
+                background: 'transparent',
+                textAlign: 'center',
+              }}>
+                <thead>
+                  <tr style={{background: '#e0f7fa'}}>
+                    <th style={{padding: '0.9rem 0.5rem', textAlign: 'center', fontWeight: 700, fontSize: '1.05rem', borderTopLeftRadius: 8}}>Date</th>
+                    <th style={{padding: '0.9rem 0.5rem', textAlign: 'center', fontWeight: 700, fontSize: '1.05rem'}}>Type</th>
+                    <th style={{padding: '0.9rem 0.5rem', textAlign: 'center', fontWeight: 700, fontSize: '1.05rem'}}>Doctor</th>
+                    <th style={{padding: '0.9rem 0.5rem', textAlign: 'center', fontWeight: 700, fontSize: '1.05rem', borderTopRightRadius: 8}}>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {reports.length === 0 ? (
+                    <tr>
+                      <td colSpan={4} style={{color:'#888', fontSize:'1rem', textAlign:'center', padding: '2rem'}}>No reports found.</td>
+                    </tr>
+                  ) : (
+                    reports.map((report, idx) => (
+                      <tr key={report.id} style={{background: idx % 2 === 0 ? '#fff' : '#f8fafd'}}>
+                        <td style={{padding: '0.8rem 0.5rem', borderBottom: '1px solid #e0e0e0', textAlign: 'center', whiteSpace: 'nowrap'}}>{report.date}</td>
+                        <td style={{padding: '0.8rem 0.5rem', borderBottom: '1px solid #e0e0e0', textAlign: 'center', whiteSpace: 'nowrap'}}>{report.type}</td>
+                        <td style={{padding: '0.8rem 0.5rem', borderBottom: '1px solid #e0e0e0', textAlign: 'center', whiteSpace: 'nowrap'}}>{report.doctor}</td>
+                        <td style={{padding: '0.8rem 0.5rem', borderBottom: '1px solid #e0e0e0', textAlign: 'center'}}>
+                          <a href={report.file} className="report-btn" download style={{marginRight: '0.5rem'}}>Download</a>
+                          <a href={report.file} className="report-btn view-btn" target="_blank" rel="noopener noreferrer">View</a>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

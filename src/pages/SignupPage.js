@@ -73,8 +73,8 @@ function SignupPage() {
       <h1 className="title">Sign Up</h1>
       {/* Role toggle buttons */}
       <div className="role-toggle">
-        <button onClick={() => setRole('patient')} className={role === 'patient' ? 'active' : ''}>👤 I am Patient</button>
-        <button onClick={() => setRole('doctor')} className={role === 'doctor' ? 'active' : ''}>🩺 I am a Doctor</button>
+        <button onClick={() => setRole('patient')} className={role === 'patient' ? 'active' : ''}>I am Patient</button>
+        <button onClick={() => setRole('doctor')} className={role === 'doctor' ? 'active' : ''}>I am a Doctor</button>
       </div>
       {/* Common fields */}
       <div className="form-group">

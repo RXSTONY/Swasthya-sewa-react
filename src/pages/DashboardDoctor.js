@@ -15,19 +15,19 @@ function DashboardDoctor() {
         <div>
           <h1>Welcome, Dr. A. Sharma</h1>
           <div className="stats-row">
-            <div className="stat"><span role="img" aria-label="patients">👥</span> 8 Patients</div>
-            <div className="stat"><span role="img" aria-label="calendar">📅</span> 24 Appointments</div>
+            <div className="stat">Patients: 8</div>
+            <div className="stat">Appointments: 24</div>
           </div>
         </div>
       </section>
       {/* Quick notes shortcut */}
       <section className="card note-card">
-        <h3><span role="img" aria-label="note">📝</span> Quick Notes</h3>
+        <h3>Quick Notes</h3>
         <input type="text" placeholder="Add a note..." />
       </section>
       {/* Recent patients shortcut */}
       <section className="card patient-card">
-        <h3><span role="img" aria-label="patients">👥</span> Recent Patients</h3>
+        <h3>Recent Patients</h3>
         <ul>
           <li>Halet ffrminute</li>
           <li>Aharjaya — Johnastmyo Test</li>
@@ -36,8 +36,8 @@ function DashboardDoctor() {
       </section>
       {/* This week's appointments shortcut */}
       <section className="card appointment-card">
-        <h3><span role="img" aria-label="calendar">📅</span> This Week's Appointments</h3>
-        <p>8 Total Patients<br/>24 Appointments This Week</p>
+        <h3>This Week's Appointments</h3>
+        <p>Patients: 8<br/>Appointments: 24</p>
       </section>
     </DashboardLayout>
   );

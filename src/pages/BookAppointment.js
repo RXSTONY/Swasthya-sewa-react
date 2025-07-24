@@ -74,7 +74,6 @@ function BookAppointment() {
             <div className="card" style={{marginTop: '1.5rem', textAlign: 'center'}}>
               <h1 className="title" style={{marginBottom: '0.5rem'}}>Appointment Booked!</h1>
               <div style={{fontSize: '1.1rem', marginBottom: '1.2rem'}}>
-                <span role="img" aria-label="success" style={{fontSize: '2.2rem', color: '#1abc9c'}}>✅</span>
                 <p style={{margin: '1rem 0 0 0'}}>Your appointment with <b>{form.doctor}</b> is scheduled for <b>{form.date}</b> at <b>{form.time}</b>.</p>
               </div>
               <a href="/dashboard-patient" className="login-btn" style={{textAlign:'center'}}>Go to Dashboard</a>
@@ -97,7 +96,7 @@ function BookAppointment() {
               {/* Doctor search and selection */}
               <div style={{marginBottom:'1.2rem'}}>
                 <div style={{fontWeight:600, fontSize:'1.08rem', marginBottom:'0.5rem', display:'flex', alignItems:'center', gap:'0.5rem'}}>
-                  <span role="img" aria-label="doctor">🩺</span> Find a Doctor
+                  Find a Doctor
                 </div>
                 <input
                   type="text"
@@ -154,15 +153,15 @@ function BookAppointment() {
               </div>
               {/* Date, time, reason fields */}
               <div className="form-group">
-                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}><span role="img" aria-label="calendar">📅</span> Date</label>
+                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Date</label>
                 <input type="date" name="date" value={form.date} onChange={handleChange} />
               </div>
               <div className="form-group">
-                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}><span role="img" aria-label="clock">⏰</span> Time</label>
+                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Time</label>
                 <input type="time" name="time" value={form.time} onChange={handleChange} />
               </div>
               <div className="form-group">
-                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}><span role="img" aria-label="note">📝</span> Reason for Visit</label>
+                <label style={{fontWeight:600, fontSize:'1rem', marginBottom:'0.3rem', display:'block'}}>Reason for Visit</label>
                 <textarea name="reason" placeholder="Describe your symptoms or reason for visit..." value={form.reason} onChange={handleChange} rows={3} />
               </div>
               <button className="login-btn" type="submit" style={{marginTop:'0.7rem'}}>Book Appointment</button>

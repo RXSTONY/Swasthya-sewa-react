@@ -60,7 +60,7 @@ function MyAppointments() {
                 upcoming.map(app => (
                   <div key={app.id} className="card" style={{marginBottom:'1rem', background:'#f8fafd', boxShadow:'0 1px 6px rgba(44,62,80,0.06)'}}>
                     <div style={{fontWeight:600, fontSize:'1.08rem'}}>{app.doctor} <span style={{color:'#888', fontWeight:400}}>({app.specialization})</span></div>
-                    <div style={{margin:'0.5rem 0'}}><span role="img" aria-label="calendar">📅</span> {app.date} &nbsp; <span role="img" aria-label="clock">⏰</span> {app.time}</div>
+                    <div style={{margin:'0.5rem 0'}}>Date: {app.date} &nbsp; Time: {app.time}</div>
                     <div style={{fontSize:'0.97rem', color:'#555'}}>Reason: {app.reason}</div>
                     <div style={{marginTop:'0.5rem', color:'#1abc9c', fontWeight:600}}>{app.status}</div>
                   </div>
@@ -76,7 +76,7 @@ function MyAppointments() {
                 past.map(app => (
                   <div key={app.id} className="card" style={{marginBottom:'1rem', background:'#fff', boxShadow:'0 1px 6px rgba(44,62,80,0.04)'}}>
                     <div style={{fontWeight:600, fontSize:'1.08rem'}}>{app.doctor} <span style={{color:'#888', fontWeight:400}}>({app.specialization})</span></div>
-                    <div style={{margin:'0.5rem 0'}}><span role="img" aria-label="calendar">📅</span> {app.date} &nbsp; <span role="img" aria-label="clock">⏰</span> {app.time}</div>
+                    <div style={{margin:'0.5rem 0'}}>Date: {app.date} &nbsp; Time: {app.time}</div>
                     <div style={{fontSize:'0.97rem', color:'#555'}}>Reason: {app.reason}</div>
                     <div style={{marginTop:'0.5rem', color:'#aaa', fontWeight:600}}>{app.status}</div>
                   </div>
