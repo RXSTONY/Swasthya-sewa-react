@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import '../Dashboard.css';
 
-const mockPatients = [
-  { id: 1, name: 'John Doe', age: 34, lastVisit: '2024-04-10' },
-  { id: 2, name: 'Jane Smith', age: 28, lastVisit: '2024-03-22' },
-  { id: 3, name: 'Alex Brown', age: 41, lastVisit: '2024-02-15' },
-];
-
 function DoctorPatients() {
-  const [patients] = useState(mockPatients);
+  const [patients, setPatients] = useState([]);
+
+  useEffect(() => {
+    const fetchPatients = async () => {
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://localhost:5001/api/appointments/patients', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setPatients(data);
+      } else {
+        alert(data.message || 'Failed to fetch patients');
+      }
+    };
+    fetchPatients();
+  }, []);
 
   return (
     <DashboardLayout role="doctor" activePage="patients">
@@ -20,18 +32,16 @@ function DoctorPatients() {
           <div className="report-table">
             <div className="report-table-header">
               <div>Name</div>
-              <div>Age</div>
-              <div>Last Visit</div>
+              <div>Email</div>
               <div>Action</div>
             </div>
             {patients.length === 0 ? (
               <div style={{color:'#888', fontSize:'1rem', textAlign:'center', marginTop:'2rem'}}>No patients found.</div>
             ) : (
               patients.map(patient => (
-                <div key={patient.id} className="report-row">
-                  <div><span role="img" aria-label="patient">👤</span> {patient.name}</div>
-                  <div>{patient.age}</div>
-                  <div><span role="img" aria-label="calendar">📅</span> {patient.lastVisit}</div>
+                <div key={patient._id} className="report-row">
+                  <div><span role="img" aria-label="patient">👤</span> {patient.fullName || patient.username}</div>
+                  <div>{patient.email}</div>
                   <div>
                     <button className="accent-btn">View Details</button>
                   </div>

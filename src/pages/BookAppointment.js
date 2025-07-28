@@ -45,13 +45,40 @@ function BookAppointment() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.doctor || !form.date || !form.time || !form.reason) {
       alert('Please fill in all fields.');
       return;
     }
-    setSubmitted(true);
+
+    // Prepare appointment data
+    const appointmentData = {
+      patient: localStorage.getItem('username') || 'testuser', // or get from logged-in user
+      doctor: form.doctor,
+      date: `${form.date}T${form.time}`,
+      reason: form.reason
+    };
+
+    // Get JWT token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Send POST request to backend
+    const res = await fetch('http://localhost:5001/api/appointments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(appointmentData)
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      alert(data.message || 'Booking failed');
+    }
   };
 
   if (submitted) {

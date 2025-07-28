@@ -32,35 +32,33 @@ function SignupPage() {
     // Simple email regex
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
-
-  const handleSignup = () => {
-    // Basic validation for required fields
-    const commonFields = [form.fullName, form.email, form.phone, form.password, form.dob, form.gender, form.address];
-    if (commonFields.some(f => !f)) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-    if (!validateEmail(form.email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    if (role === 'patient') {
-      if (!form.emergencyContact) {
-        alert('Please provide an emergency contact.');
-        return;
+  const handleSignup = async () => {
+    // (Keep your validation code as it is above this line)
+  
+    // Only send the fields your backend expects
+    const payload = {
+      username: form.email, // backend expects 'username'
+      password: form.password
+    };
+  
+    try {
+      const res = await fetch('http://localhost:5001/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Account created successfully! Redirecting to login...');
+        window.location.href = '/login';
+      } else {
+        alert(data.message || 'Signup failed');
       }
-    } else {
-      // doctor
-      if (!form.licenseNumber || !form.specialization || !form.experience || !form.clinicName || !form.clinicAddress) {
-        alert('Please fill in all doctor-specific fields.');
-        return;
-      }
+    } catch (err) {
+      alert('Signup failed. Please try again.');
     }
-    // Simulate account creation
-    console.log('Account Created:', { role, ...form });
-    alert('Account created successfully! Redirecting to login...');
-    window.location.href = '/login';
   };
+  
 
   return (
     <div className="login-container">
