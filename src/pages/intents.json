@@ -1,0 +1,71 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "How are you?", "Good morning"],
+      "responses": ["Hello!", "Hi there!", "Greetings!"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": ["See you!", "Goodbye!", "Take care!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Much appreciated"],
+      "responses": ["You're welcome!", "No problem!", "Anytime!"]
+    },
+    {
+      "tag": "questions",
+      "patterns": ["what is this about", "who are you", "i need help"],
+      "responses": ["swastha sewa, an online medical checkup platform for patients", "swastha sewa, an online medical checkup platform for patients", "swastha sewa, an online medical checkup platform for patients"]
+    },
+    {
+      "tag": "info",
+      "patterns": ["where can i find doctor","i need to checkup my condition", "where can i contact doctor", "i need doctors asap"],
+      "responses": ["please goto dashboard for doctor list and availability", "please goto dashboard for doctor list and availability", "please goto dashboard for doctor list and availability","please goto dashboard for doctor list and availability" ]
+    },
+    {
+      "tag": "register",
+      "patterns": ["i am new to here", "i am a patient", "i am a doctor", "i need to register"],
+      "responses": ["please login if you have already registered, signup if you are new", "please login if you have already registered, signup if you are new", "please login if you have already registered, signup if you are new", "please login if you have already registered, signup if you are new"]
+    },
+    {
+      "tag" : "doctor", 
+      "patterns" : ["what kind of doctor is good for me", "what kind of doctor is best for my condition", "who is best doctor"],
+      "responses" : ["you can search doctor that suits your condition for eg contact dermatologist for skin related issues, contact cardiologist for heart related issues, dentist for teeth issues","you can search doctor that suits your condition for eg contact dermatologist for skin related issues, contact cardiologist for heart related issues, dentist for teeth issues", "you can search doctor that suits your condition for eg contact dermatologist for skin related issues, contact cardiologist for heart related issues, dentist for teeth issues" ]
+    },
+    {
+      "tag" : "appointment",
+      "patterns" : ["how to book appointment", "i need appointment", "when is doctor available"],
+      "responses": ["please visit doctor search for their availability, fees, rating and book appointment", "please visit doctor search for their availability, fees, rating and book appointment" ,"please visit doctor search for their availability, fees, rating and book appointment"]
+    },
+    {
+      "tag": "symptoms",
+      "patterns": ["I have a headache", "I feel dizzy", "I have chest pain", "My stomach hurts"],
+      "responses": ["Based on your symptoms, you may want to consult a general physician or specialist. Visit the doctor search page.", "You should seek medical advice from the relevant department. Please search for the suitable doctor on the dashboard."]
+    },
+    {
+      "tag": "emergency",
+      "patterns": ["I need urgent help", "This is an emergency", "What to do in emergency"],
+      "responses": ["If this is a medical emergency, please call your local emergency number or visit the nearest hospital immediately."]
+    },
+    {
+      "tag": "contact",
+      "patterns": ["How do I contact you?", "Where are you located?", "Phone number?"],
+      "responses": ["You can contact us through the Contact page. We are located at [Your Address Here]."]
+    },
+    {
+      "tag": "tips",
+      "patterns": ["Give me health tips", "How to stay healthy", "Daily health routine?"],
+      "responses": ["Drink plenty of water, get regular sleep, exercise daily, and avoid junk food.", "Keep stress low, eat fruits and veggies, and stay active for a healthy life."]
+    },
+    {
+      "tag": "repeat_user",
+      "patterns": ["I’ve visited before", "I already have an account", "I was here earlier"],
+      "responses": ["Welcome back! Please log in to continue your consultation or check updates."]
+    }
+    
+  ]
+}
+   
