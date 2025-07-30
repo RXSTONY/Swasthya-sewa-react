@@ -1,0 +1,94 @@
+.search-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 0.6rem 1rem;
+  background-color: #1F49A7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.results-table th {
+  background-color: #f4f4f4;
+}
+
+.loading, .error, .no-results {
+  margin-top: 1rem;
+  color: #888;
+}
+.error {
+  color: red;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  width: 400px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal input,
+.modal textarea {
+  padding: 0.6rem;
+  font-size: 1rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
